@@ -9,9 +9,9 @@ selling_items = {
 notes = { 
             1: 20, 
             5: 20, 
-            10: 20, 
-            20: 10, 
-            50: 10
+            10: 2, 
+            20: 1, 
+            50: 1
         }
 
 def calculateRamining(input):
@@ -51,7 +51,7 @@ def calculateRamining(input):
 
             # If greater than current notes stock will break
             if(notes_quantity > y):
-                return "Current machine dont have enough notes."
+                continue
 
             # Count remaining
             remaining = remaining - (x * notes_quantity)
@@ -64,8 +64,11 @@ def calculateRamining(input):
             if(remaining == 0):
                 break
         
+        if(len(amount) == 0):
+            return "Current machines dont have enought notes"
+        
     return amount
 
 # Sample input
-current_input = { 'item_id': 0, 'quantity': 20, 'notes': 211 }
+current_input = { 'item_id': 0, 'quantity': 2, 'notes': 211 }
 print(calculateRamining(current_input))
