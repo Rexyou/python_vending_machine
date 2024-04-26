@@ -1,6 +1,6 @@
 # Selling items and details
 selling_items = {  
-                    0: { 'label': 'item_1', 'price': 10, 'quantity': 30 }, 
+                    0: { 'label': 'item_1', 'price': 3, 'quantity': 30 }, 
                     1: { 'label': 'item_2', 'price': 20, 'quantity': 30 }, 
                     2: { 'label': 'item_3', 'price': 30, 'quantity': 30 } 
                 }
@@ -8,10 +8,10 @@ selling_items = {
 # Current machine notes
 notes = { 
             1: 20, 
-            5: 20, 
-            10: 2, 
+            5: 1, 
+            10: 1, 
             20: 1, 
-            50: 1
+            50: 2
         }
 
 def calculateRamining(input):
@@ -51,7 +51,7 @@ def calculateRamining(input):
 
             # If greater than current notes stock will break
             if(notes_quantity > y):
-                continue
+                notes_quantity = 1
 
             # Count remaining
             remaining = remaining - (x * notes_quantity)
@@ -70,5 +70,5 @@ def calculateRamining(input):
     return amount
 
 # Sample input
-current_input = { 'item_id': 0, 'quantity': 2, 'notes': 211 }
+current_input = { 'item_id': 0, 'quantity': 1, 'notes': 20 }
 print(calculateRamining(current_input))
